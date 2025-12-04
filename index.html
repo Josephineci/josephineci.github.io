@@ -3,247 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Safe - Advisory Service Catalog</title>
+  <title>Digital Safe - Advisory Service Catalogue</title>
 
   <style>
-    :root {
-      --primary: #003b8b;
-      --primary-dark: #002b5c;
-      --bg: #f3f6fa;
-      --card-bg: #ffffff;
-      --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
-      --transition: 0.25s ease;
-    }
-
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: "Inter", Arial, sans-serif;
-      background: var(--bg);
+      padding: 0;
+      background: #f5f5f5;
     }
 
     header {
-      background: var(--primary-dark);
+      background: #002b5c;
       color: white;
-      padding: 40px 20px;
+      padding: 20px;
       text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 1px;
     }
 
     .container {
-      max-width: 1200px;
+      padding: 20px;
+      max-width: 1100px;
       margin: auto;
-      padding: 30px 20px;
     }
 
     h2 {
-      color: var(--primary-dark);
+      color: #002b5c;
       margin-top: 40px;
-      margin-bottom: 20px;
-      font-size: 1.6rem;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      gap: 20px;
     }
 
     .card {
-      background: var(--card-bg);
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 1.25rem;
-      color: var(--primary-dark);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .card button {
-      background: var(--primary);
+      background: #002b5c;
       color: white;
-      padding: 12px;
+      padding: 10px 15px;
       border: none;
-      border-radius: 8px;
-      margin-top: 15px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: var(--transition);
-      font-size: 0.95rem;
     }
-
-    .card button:hover {
-      background: var(--primary-dark);
-      transform: scale(1.03);
-    }
-
-    /* --- Modal --- */
 
     .modal {
       display: none;
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
-      animation: fadeIn 0.3s ease forwards;
-      z-index: 1000;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      z-index: 999;
     }
 
     .modal-content {
       background: white;
-      width: 380px;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: var(--shadow-hover);
-      animation: slideUp 0.35s ease forwards;
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .close {
-      float: right;
-      font-size: 22px;
-      cursor: pointer;
+      padding: 20px;
+      width: 350px;
+      border-radius: 10px;
+      box-sizing: border-box;
     }
 
     .modal-content input,
     .modal-content textarea {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 0.95rem;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: var(--primary);
-      color: white;
-      padding: 12px;
-      border: none;
-      margin-top: 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1rem;
-    }
-
-    .submit-btn:hover {
-      background: var(--primary-dark);
-      transform: scale(1.03);
-    }
-
-    .success-message {
-      display: none;
-      text-align: center;
       padding: 10px;
-      margin-top: 10px;
-      background: #d1fad1;
-      color: #115e11;
-      border-radius: 6px;
+      margin: 8px 0;
+    }
+
+    .close {
+      float: right;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Digital Safe Advisory <br>Service Catalogue</h1>
-</header>
+  <header>
+    <h1>Digital Safe Advisory <br>Service Catalogue</h1>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-  <!-- CATEGORY -->
-  <h2>Governance, Risk & Compliance (GRC) Services</h2>
+    <h2>Governance, Risk & Compliance (GRC) Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Regulatory Compliance & Standards Alignment</h3>
+        <p>Support organisations in meeting regulatory and industry standards.</p>
+        <button onclick="openForm('Regulatory Compliance & Standards Alignment')">Request</button>
+      </div>
 
-  <div class="grid">
-    <!-- Repeatable Card Component -->
-    <div class="card">
-      <h3>Regulatory Compliance & Standards Alignment</h3>
-      <p>Support organisations in meeting regulatory and industry standards.</p>
-      <button onclick="openForm('Regulatory Compliance & Standards Alignment')">Request</button>
+      <div class="card">
+        <h3>Security Governance & Policy Frameworks</h3>
+        <p>Development and review of cybersecurity policies and governance structures.</p>
+        <button onclick="openForm('Security Governance & Policy Frameworks')">Request</button>
+      </div>
+
+      <div class="card">
+        <h3>Third-Party Risk Management & Assurance</h3>
+        <p>Assessment and monitoring of vendor cybersecurity risk exposure.</p>
+        <button onclick="openForm('Third-Party Risk Management & Assurance')">Request</button>
+      </div>
+
+      <div class="card">
+        <h3>ISMS & Certification Readiness</h3>
+        <p>ISO 27001 readiness, gap assessments, and implementation guidance.</p>
+        <button onclick="openForm('ISMS & Certification Readiness')">Request</button>
+      </div>
+
+      <div class="card">
+        <h3>Enterprise Risk, Strategy & Resilience</h3>
+        <p>Enterprise risk assessments and strategic resilience planning.</p>
+        <button onclick="openForm('Enterprise Risk, Strategy & Resilience')">Request</button>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Security Governance & Policy Frameworks</h3>
-      <p>Development and review of cybersecurity policies and governance structures.</p>
-      <button onclick="openForm('Security Governance & Policy Frameworks')">Request</button>
-    </div>
+    <h2>Training Services</h2>
+    <div class="grid">
 
-    <div class="card">
-      <h3>Third-Party Risk Management & Assurance</h3>
-      <p>Assessment and monitoring of vendor cybersecurity risk exposure.</p>
-      <button onclick="openForm('Third-Party Risk Management & Assurance')">Request</button>
-    </div>
+      <div class="card">
+        <h3>Information Security Training</h3>
+        <p>ISO 27001, ISO 27005, CISO training, and more.</p>
+        <button onclick="openForm('Information Security Training')">Request</button>
+      </div>
 
-    <div class="card">
-      <h3>ISMS & Certification Readiness</h3>
-      <p>ISO 27001 readiness, gap assessments, and implementation guidance.</p>
-      <button onclick="openForm('ISMS & Certification Readiness')">Request</button>
-    </div>
+      <div class="card">
+        <h3>Cybersecurity Training</h3>
+        <p>Certified Lead Cybersecurity Manager programs.</p>
+        <button onclick="openForm('Cybersecurity Training')">Request</button>
+      </div>
 
-    <div class="card">
-      <h3>Enterprise Risk, Strategy & Resilience</h3>
-      <p>Enterprise risk assessments and strategic resilience planning.</p>
-      <button onclick="openForm('Enterprise Risk, Strategy & Resilience')">Request</button>
+      <div class="card">
+        <h3>Continuity, Resilience & Recovery</h3>
+        <p>ISO 22301 and Disaster Recovery training.</p>
+        <button onclick="openForm('Continuity, Resilience & Recovery')">Request</button>
+      </div>
+
+      <div class="card">
+        <h3>IT Service Management</h3>
+        <p>ISO 31000 and COBIT 2019 design & implementation.</p>
+        <button onclick="openForm('IT Service Management')">Request</button>
+      </div>
+
+      <div class="card">
+        <h3>Privacy & Data Protection</h3>
+        <p>PECB Certified Data Protection Officer (DPO) program.</p>
+        <button onclick="openForm('Privacy & Data Protection')">Request</button>
+      </div>
+
+      <div class="card">
+        <h3>Digital Transformation</h3>
+        <p>Digital Transformation Officer & ISO 42001 training.</p>
+        <button onclick="openForm('Digital Transformation')">Request</button>
+      </div>
+
+      <div class="card">
+        <h3>Quality & Management</h3>
+        <p>ISO 9001 & ISO 20000 Lead Implementer programs.</p>
+        <button onclick="openForm('Quality & Management')">Request</button>
+      </div>
+
     </div>
   </div>
 
-  <!-- TRAINING -->
-  <h2>Training Services</h2>
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Information Security Training</h3>
-      <p>ISO 27001, ISO 27005, CISO training, and more.</p>
-      <button onclick="openForm('Information Security Training')">Request</button>
+      <h3>Submit Service Request</h3>
+
+      <form>
+        <label>Service:</label>
+        <input type="text" id="serviceName" readonly />
+
+        <label>Your Name:</label>
+        <input type="text" placeholder="Enter your full name" required />
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email" required />
+
+        <label>Organization:</label>
+        <input type="text" placeholder="Your organization name" />
+
+        <label>Details:</label>
+        <textarea placeholder="Describe your request..." rows="4"></textarea>
+
+        <button
+          type="submit"
+          style="
+            background: #002b5c;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+          "
+        >
+          Submit Request
+        </button>
+      </form>
     </div>
+  </div>
 
-    <div class="card">
-      <h3>Cybersecurity Training</h3>
-      <p>Certified Lead Cybersecurity Manager programs.</p>
-      <button onclick="openForm('Cybersecurity Training')">Request</button>
-    </div>
+  <script>
+    function openForm(service) {
+      document.getElementById("serviceName").value = service;
+      document.getElementById("modal").style.display = "flex";
+    }
 
-    <div class="card">
-      <h3>Continuity, Resilience & Recovery</h3>
-      <p>ISO 22301 and Disaster Recovery training.</p>
-      <button onclick="openForm('Continuity, Resilience & Recovery')">Request</button>
-    </div>
+    function closeForm() {
+      document.getElementById("modal").style.display = "none";
+    }
 
-    <div class="card">
-      <h3>IT Service Management</h3>
-      <p>ISO 31000 and COBIT 2019 design & implementation.</p>
-      <button onclick="openForm('IT Service Management')">Request</button>
-    </div>
+    window.onclick = function (event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
 
-    <div class="card">
-      <
+</body>
+</html>
